@@ -1,0 +1,58 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Share Tech", system-ui, sans-serif;
+}
+
+/* Scalloped edges all around */
+.scalloped-box {
+  --r: 15px; /* radius of circles */
+
+  /* The mask creates the scallops */
+  -webkit-mask:
+    linear-gradient(#000 0 0) no-repeat 50%/calc(100% - 2*var(--r)) calc(100% - 2*var(--r)),
+    radial-gradient(farthest-side, #000 97%, transparent) 0 0 / calc(2*var(--r)) calc(2*var(--r)) round;
+  mask:
+    linear-gradient(#000 0 0) no-repeat 50%/calc(100% - 2*var(--r)) calc(100% - 2*var(--r)),
+    radial-gradient(farthest-side, #000 97%, transparent) 0 0 / calc(2*var(--r)) calc(2*var(--r)) round;
+}
+
+/* push-pin shape */
+.pin {
+  --h: 44px; /* controls size */
+
+  height: var(--h);
+  aspect-ratio: 2 / 3;
+
+  mask:
+    conic-gradient(
+      from -30deg at bottom,
+      transparent,
+      #000 1deg 59deg,
+      transparent 60deg
+    )
+    bottom / 100% 50% no-repeat,
+    radial-gradient(
+      circle at 50% calc(100% / 3),
+      transparent 21.5%,
+      #000 22% 44%,
+      transparent 44.5%
+    );
+
+  -webkit-mask:
+    conic-gradient(
+      from -30deg at bottom,
+      transparent,
+      #000 1deg 59deg,
+      transparent 60deg
+    )
+    bottom / 100% 50% no-repeat,
+    radial-gradient(
+      circle at 50% calc(100% / 3),
+      transparent 21.5%,
+      #000 22% 44%,
+      transparent 44.5%
+    );
+
+  background: #ec1a23;
+}
